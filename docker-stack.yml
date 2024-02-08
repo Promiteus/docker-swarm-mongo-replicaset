@@ -56,7 +56,8 @@ services:
 
 networks:
   mongo-net:
-    external: true
+    external:
+      name: mongo-net
 
 volumes:
   mongo-data-1:

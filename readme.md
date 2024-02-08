@@ -17,6 +17,10 @@ docker swarm join --token *docker-swarm-token* *manager-address*
 * Создать общую сеть (manager узел):
 ```
 docker network create -d overlay mongo-net
+
+или
+
+docker network create mongo-net --scope swarm --driver overlay
 ```
 * В manager машине обновить метки узлов:
 ```

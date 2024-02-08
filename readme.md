@@ -30,8 +30,15 @@ docker node update --label-add mongo.replica=3 *worker2-address*
 ```
 docker stack deploy -c docker-stack.yml rep
 ```
-* Инициализировать мастер базу (manager узел):
-```
-./init-master-db.sh
-docker service update --publish-add 27017:27017 rep_mongo1
-```
+### 2. Инициализировать мастер базу и задать параметры входа
+* Инициализация мастер-базы (manager узел), команды по порядку:
+> ./init-master-db.sh  
+* Открыть публичные порты:  
+> docker service update --publish-add 27017:27017 rep_mongo1  
+* Инициализировать пользователя:  
+> ./mongo-init-user.sh  
+
+
+
+
+

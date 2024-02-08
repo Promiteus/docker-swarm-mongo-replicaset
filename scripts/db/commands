@@ -1,0 +1,10 @@
+use testdb
+db.createUser(
+   {user: "su",
+    pwd: "1234",
+    roles: [ { role: "clusterAdmin", db: "admin" },
+             { role: "readAnyDatabase", db: "admin" },
+             "readWrite"
+        ]
+   }
+)

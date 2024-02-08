@@ -18,3 +18,20 @@ docker swarm join --token *docker-swarm-token* *manager-address*
 ```
 docker network create -d overlay mongo-net
 ```
+* В manager машине обновить метки узлов:
+```
+docker node update --label-add mongo.replica=1 *manager-address*
+docker node update --label-add mongo.replica=2 *worker1-address*
+docker node update --label-add mongo.replica=3 *worker2-address*
+```
+Для multipass "manager-address" нужно использовать имя узла (anager, vm-1, vm-2 и т.д.).  
+
+* Запустить сервисы mongodb в manager узле:
+```
+docker stack deploy -c docker-stack.yml rep
+```
+* Инициализировать мастер базу (manager узел):
+```
+./init-master-db.sh
+docker service update --publish-add 27017:27017 rep_mongo1
+```

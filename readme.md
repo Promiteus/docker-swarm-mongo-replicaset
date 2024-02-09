@@ -44,7 +44,7 @@ docker stack deploy -c  docker-stack.yml rep
 > ./scripts/mongo-init-user.sh
 * Открыть публичные порты:  
 > docker service update --publish-add 27017:27017 rep_mongo1
-> docker service update --publish-add 8081:8081 rep_mongoexpress
+
  
 
 

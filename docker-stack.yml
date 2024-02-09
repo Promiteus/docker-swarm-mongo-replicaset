@@ -23,7 +23,7 @@ services:
     networks:
       - mongo-net
     environment:
-      ME_CONFIG_MONGODB_URL: mongodb://rep_mongo1:27017
+      ME_CONFIG_MONGODB_URL: mongodb://mongo1:27017
       ME_CONFIG_BASICAUTH_USERNAME: su
       ME_CONFIG_BASICAUTH_PASSWORD: 1234
     logging:

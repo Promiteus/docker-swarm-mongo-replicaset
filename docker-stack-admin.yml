@@ -18,7 +18,7 @@ services:
 
   # Менеджер управления mongodb
   mongoexpress:
-    image: mongo-express
+    image: mongo-express:0.54.0
     ports:
       - "8081:8081"
     networks:
@@ -38,8 +38,10 @@ services:
         delay: 5s
       update_config:
         parallelism: 1
+      placement:
+        constraints: [ node.role == manager ]
 
 networks:
-  mongo-net:
+  public:
     external:
       name: mongo-net

@@ -20,7 +20,7 @@ docker network create -d overlay mongo-net
 
 или
 
-docker network create mongo-net --scope swarm --driver overlay
+docker network create --driver overlay --attachable mongo-net
 ```
 * В manager машине обновить метки узлов:
 ```
@@ -32,7 +32,7 @@ docker node update --label-add mongo.replica=3 *worker2-address*
 
 * Запустить сервисы mongodb в manager узле:
 ```
-docker stack deploy -c docker-stack.yml rep
+docker stack deploy -c  docker-stack.yml rep
 ```
 ### 2. Инициализировать мастер базу и задать параметры входа
 * Инициализация мастер-базы (manager узел), команды по порядку:

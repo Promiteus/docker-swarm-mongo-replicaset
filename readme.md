@@ -22,7 +22,7 @@ docker network create -d overlay mongo-net
 
 docker network create --driver overlay --attachable mongo-net
 ```
-* Удалить все тома со старыми данными (опционально):  
+* Удалить все тома со старыми данными (опционально). Нужно выполнить на всех машинах manager, vm-1, vm-2:  
 > docker volume rm $(docker volume ls -q --filter dangling=true)
 
 * В manager машине обновить метки узлов:

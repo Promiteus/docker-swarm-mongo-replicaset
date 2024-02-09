@@ -42,6 +42,5 @@ services:
         constraints: [ node.role == manager ]
 
 networks:
-  public:
-    external:
-      name: mongo-net
+  mongo-net:
+    external: true

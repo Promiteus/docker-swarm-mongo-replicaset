@@ -56,9 +56,9 @@ services:
           - node.labels.mongo.replica == 3
 
 networks:
-  public:
-    external:
-      name: mongo-net
+  mongo-net:
+    external: true
+
 
 volumes:
   mongo-data-1:

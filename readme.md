@@ -40,8 +40,10 @@ docker stack deploy -c  docker-stack.yml rep
 ### 2. Инициализировать мастер базу и задать параметры входа
 * Инициализация мастер-базы (manager узел), команды по порядку:
 > ./scripts/init-master-db.sh 
+
 * Инициализировать пользователя:
 > ./scripts/mongo-init-user.sh
+
 * Открыть публичные порты:  
 > docker service update --publish-add 27017:27017 rep_mongo1
 
